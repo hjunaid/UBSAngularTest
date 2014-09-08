@@ -11,7 +11,7 @@ angular.module('UBSAngularApp')
                     hundredBillion = 100 * 1000 * 1000 * 1000, lastDot =/\.$/;
 
                 element.on('keyup', function () {
-                    //Forcing angular to update view since parsers are not called consistently. Need to optimize this .
+                    //Forcing angular to update view since parsers are not called consistently. Need optimizing.
                     ctrl.$setViewValue(element.val());
                 })
 
