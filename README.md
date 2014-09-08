@@ -15,7 +15,7 @@ Solution
 
  - I choose Angular for this task as Angular provides features to encapsulate, reuse and test components easily
 
-   - I wrote a CurrencyInput directive that works along with ng-model directive to transform user input into the desired result
+   - Wrote CurrencyInput directive that works along with ng-model directive to transform user input into the desired result
 
    - Solution works using parsers and formatters from ngModelController
 
