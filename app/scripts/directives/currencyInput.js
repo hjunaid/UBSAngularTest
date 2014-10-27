@@ -12,6 +12,10 @@ angular.module('UBSAngularApp')
 
                 element.on('keyup', function () {
                     //Forcing angular to update view since parsers are not called consistently. Need optimizing.
+//                    ctrl.$setViewValue(element.val());
+                })
+
+                scope.$watch(attrs.ngModel, function(){
                     ctrl.$setViewValue(element.val());
                 })
 
@@ -30,6 +34,7 @@ angular.module('UBSAngularApp')
                 }
 
                 ctrl.limitMaxValue = function (val) {
+                    console.log(val)
                     return Math.min(hundredBillion, val);
                 }
 
@@ -47,7 +52,8 @@ angular.module('UBSAngularApp')
                     return val;
                 }
 
-                ctrl.$parsers.unshift(ctrl.updateView);
+
+//                ctrl.$parsers.unshift(ctrl.updateView);
                 ctrl.$parsers.unshift(ctrl.limitMaxValue);
                 ctrl.$parsers.unshift(ctrl.parseCurrency);
                 ctrl.$parsers.unshift(ctrl.removeNonDigits);
@@ -55,7 +61,13 @@ angular.module('UBSAngularApp')
 
                 ctrl.$formatters.unshift(ctrl.formatValue);
 
+                ctrl.$render = function(){
+                    ctrl.$setViewValue(ctrl.$modelValue)
+                }
 
+                scope.$on('$destroy', function(){
+                    element.off('keyup');
+                })
             }
         };
     }]);

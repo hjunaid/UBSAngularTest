@@ -74,7 +74,7 @@ describe('Directive: currencyInput', function () {
 
     })
 
-    it('should be able to format view value correctly', function(){
+    xit('should be able to format view value correctly', function(){
         modelValue.amount =100000;
         scope.$digest();
         expect(modelCtrl.$viewValue).toBe('100,000');
@@ -85,7 +85,7 @@ describe('Directive: currencyInput', function () {
 
     })
 
-    it('simulate keyup and verify valid values ', function(){
+    xit('simulate keyup and verify valid values ', function(){
       var input = element.find('input');
         input.val('1k');
         input.trigger('keyup');
